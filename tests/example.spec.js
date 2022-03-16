@@ -7,7 +7,8 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
-
+    let currentYear = new Date().getFullYear();
+    await expect(page.locator('.copyright')).toContainText(currentYear + ' All Rights Reserved.');
   });
 
 
@@ -61,7 +62,6 @@ test.describe('New Todo', () => {
 //
 //    // Check test using different methods.
 //    await expect(page.locator('.todo-count')).toHaveText('3 items left');
-//    await expect(page.locator('.todo-count')).toContainText('3');
 //    await expect(page.locator('.todo-count')).toHaveText(/3/);
 //
 //    // Check all items in one call.
