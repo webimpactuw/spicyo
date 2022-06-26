@@ -7,6 +7,8 @@ on:
   workflow_dispatch:
    inputs:
       userRepo:
+      devMatchSubmissionId:
+        required: true
       home:
         required: true
 jobs:
@@ -14,11 +16,13 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+    - name: devMatchSubmissionId:${{ inputs.devMatchSubmissionId }}
+      run: echo devmatch identifier is ${{ inputs.devMatchSubmissionId }}
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
         node-version: '14.x'
-    - run: echo "MESSAGE - ${{ github.event.inputs.userRepo }} "
+    - run: echo "Repo to pull from ${{ github.event.inputs.userRepo }}"
     - run: git remote add devmatch ${{ github.event.inputs.userRepo }}
     - run: git fetch --all
     - run: git pull --rebase devmatch main 
