@@ -1,7 +1,7 @@
 {
   "name": "spicyo",
   "version": "1.0.0",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna leo, tincidunt in lacinia ut, tristique rhoncus nulla. Praesent sem neque, porttitor ac nisi eget, euismod vestibulum lacus. Suspendisse sollicitudin ipsum at ex accumsan, ut convallis nisi pharetra. Curabitur dignissim sem ac efficitur consequat. Proin eu vulputate ipsum. Praesent in commodo est. Morbi vulputate vel lorem in faucibus. Praesent fermentum leo a orci ornare, nec faucibus est consectetur. Sed sed turpis a metus eleifend hendrerit. Nulla pulvinar, diam id imperdiet consequat, lorem felis rutrum nunc, id laoreet augue massa quis mauris. Morbi nisi augue, pellentesque vitae dolor in, ullamcorper egestas ex.",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "http-server": "^14.1.0"
@@ -11,14 +11,15 @@
   },
   "scripts": {
     "dev": "./node_modules/http-server/bin/http-server",
-    "test": "npx playwright test"
+    "dev-win": "node node_modules\\http-server\\bin\\http-server",
+    "test": "PLAYWRIGHT_JSON_OUTPUT_NAME=results.json npx playwright test  --reporter=json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DUBvelopers-UW/spicyo.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "",
   "bugs": {
     "url": "https://github.com/DUBvelopers-UW/spicyo/issues"
   },
