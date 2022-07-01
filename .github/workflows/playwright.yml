@@ -17,14 +17,10 @@ jobs:
     - name: devMatchSubmissionId:${{ inputs.devMatchSubmissionId }}
       if: github.event.inputs.devMatchSubmissionId != ''
       run: echo devmatch identifier is ${{ inputs.devMatchSubmissionId }}
-    - name: devMatchSubmissionNote:empty
-      if: github.event.inputs.devMatchSubmissionId == ''
-      run: echo devmatch identifier is empty
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
         node-version: '14.x'
-
     - run: echo "Repo to pull from ${{ github.event.inputs.userRepo }}"
       if: github.event.inputs.userRepo != ''
     - run: git remote add devmatch ${{ github.event.inputs.userRepo }}
