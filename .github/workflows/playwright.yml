@@ -8,24 +8,31 @@ on:
    inputs:
       userRepo:
       devMatchSubmissionId:
-        required: true
-      home:
-        required: true
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - name: devMatchSubmissionId:${{ inputs.devMatchSubmissionId }}
+      if: github.event.inputs.devMatchSubmissionId != ''
       run: echo devmatch identifier is ${{ inputs.devMatchSubmissionId }}
+    - name: devMatchSubmissionNote:empty
+      if: github.event.inputs.devMatchSubmissionId == ''
+      run: echo devmatch identifier is empty
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
         node-version: '14.x'
+
     - run: echo "Repo to pull from ${{ github.event.inputs.userRepo }}"
+      if: github.event.inputs.userRepo != ''
     - run: git remote add devmatch ${{ github.event.inputs.userRepo }}
+      if: github.event.inputs.userRepo != ''
     - run: git fetch --all
+      if: github.event.inputs.userRepo != ''
     - run: git pull --rebase devmatch main
+      if: github.event.inputs.userRepo != ''
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright
