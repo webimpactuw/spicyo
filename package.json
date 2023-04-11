@@ -1,0 +1,27 @@
+{
+  "name": "spicyo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^14.1.0",
+    "superagent": "^8.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.23.1"
+  },
+  "scripts": {
+    "dev": "./node_modules/http-server/bin/http-server",
+    "test": "PLAYWRIGHT_JSON_OUTPUT_NAME=.devmatch/out/results.json npx playwright test  --reporter=dot --reporter=json "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DUBvelopers-UW/spicyo.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/DUBvelopers-UW/spicyo/issues"
+  },
+  "homepage": "https://github.com/DUBvelopers-UW/spicyo#readme"
+}
